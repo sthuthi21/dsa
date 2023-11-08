@@ -13,11 +13,6 @@ void push(int item)
     {
         printf("Stack Overflow");
     }
-    // else if(top1==-1)
-    // {
-    //     stack[++top1]=item;
-    //     auxstack[++top2]=item;
-    // }
     else
     {
         if (top1==-1||item<=auxstack[top2])
