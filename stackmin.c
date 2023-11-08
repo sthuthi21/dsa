@@ -32,7 +32,7 @@ void push(int item)
     }
 }
 
-int pop()
+void pop()
 {
     int item;
     if(top1<0)
@@ -55,14 +55,14 @@ int pop()
     printf("popped element:%d",item);
 }
 
-void display(int stack1[],int top)
+void display()
 {
-    if(top>=0)
+    if(top1>=0)
     {
         printf("\nSTACK\n");
-        for(int i=top;i>=0;i--)
+        for(int i=top1;i>=0;i--)
         {
-            printf("%d\t",stack1[i]);
+            printf("%d\t",stack[i]);
         }
     }
     else
@@ -70,46 +70,52 @@ void display(int stack1[],int top)
         printf("stack is empty");
     }
 }
+void peek()
+{
+    int topEle=stack[top1];
+    printf("Element at top is:%d",topEle);
+}
 void getmin()
 {
     int minEle=auxstack[top2];
     printf("\nmin element :%d\n",minEle) ;
 }
 
-
 void main()
 {
-    push(6);
-    display(stack,top1);
-    display(auxstack,top2);
-    getmin();
-    push(4);
-    display(stack,top1);
-    display(auxstack,top2);
-    getmin();
-    push(2);
-    display(stack,top1);
-    display(auxstack,top2);
-    getmin();
-    push(10);
-    display(stack,top1);
-    display(auxstack,top2);
-    getmin();
-    pop();
-    display(stack,top1);
-    display(auxstack,top2);
-    getmin();
-    pop();
-    display(stack,top1);
-    display(auxstack,top2);
-    getmin();
-    push(1);
-    display(stack,top1);
-    display(auxstack,top2);
-    getmin();
-    push(5);
-    display(stack,top1);
-    display(auxstack,top2);
-    getmin();
+    int op,flag=0,a,b;
+    printf("****STACK OPERATIONS****\n");
+    while(flag==0)
+    {
+        printf("*********************\n");
+        printf("what do u want to do?\n1.PUSH\n2.POP\n3.DISPLAY\n4.PEEK\n5.MINIMUM ELEMENT\n");
+        scanf("%d",&op);
+        switch(op)
+        {
+            case 1:
+                printf("enter the item you want to push:");
+                scanf("%d",&a);
+                push(a);
+                break;
+            case 2:
+                pop();
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                peek();
+                break;
+            case 5:
+                getmin();
+                break;
+            default:
+                printf("select valid option");
+        }
+        printf("\npress 1 to exit.\npress 0 to do another operation.");
+        scanf("%d",&flag);
+    
+    }
+
 }
 
