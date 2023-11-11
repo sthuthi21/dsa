@@ -9,31 +9,31 @@ int top2=-1;
 
 void push(int item)
 {
-    if(top1==MAX_SIZE-1)
+    if (top1 == MAX_SIZE - 1)
     {
         printf("Stack Overflow");
-
     }
     else
     {
-        if(top1==-1)
+        if (top1 == -1)
         {
-            stack[++top1]=item;
+            stack[++top1] = item;
         }
         else
         {
-            while(item>stack[top1]&&top1!=-1)
+            while (top1 != -1 && item > stack[top1])
             {
-                auxstack[++top2]=stack[top1--];
+                auxstack[++top2] = stack[top1--];
             }
-            stack[++top1]=item;
-            while(top2!=0)
+            stack[++top1] = item;
+            while (top2 != -1)
             {
-                stack[++top1]=auxstack[top2--];
+                stack[++top1] = auxstack[top2--];
             }
         }
     }
 }
+
 int pop()
 {
     int item;
@@ -67,9 +67,9 @@ void main()
 {
     int op,flag=0,a,b;
     printf("****STACK OPERATIONS****\n");
-    while(flag==0)
+    do
     {
-        printf("*********************\n");
+        printf("\n*********************\n");
         printf("what do u want to do?\n1.PUSH\n2.POP\n3.DISPLAY\n");
         scanf("%d",&op);
         switch(op)
@@ -87,11 +87,9 @@ void main()
                 display();
                 break;
             default:
-                printf("select valid option");
+                printf("exiting......");
         }
-        printf("\npress 1 to exit.\npress 0 to do another operation.");
-        scanf("%d",&flag);
-    }
+    }while(op<=3);
     
 }
 
