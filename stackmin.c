@@ -80,10 +80,10 @@ void main()
 {
     int op,flag=0,a,b;
     printf("****STACK OPERATIONS****\n");
-    while(flag==0)
+    printf("what do u want to do?\n1.PUSH\n2.POP\n3.DISPLAY\n4.PEEK\n5.MINIMUM ELEMENT\nPress any other number to exit.");
+    do
     {
-        printf("*********************\n");
-        printf("what do u want to do?\n1.PUSH\n2.POP\n3.DISPLAY\n4.PEEK\n5.MINIMUM ELEMENT\n");
+        printf("\n*********************\n");
         scanf("%d",&op);
         switch(op)
         {
@@ -105,12 +105,10 @@ void main()
                 getmin();
                 break;
             default:
-                printf("select valid option");
+                printf("exiting...");
         }
-        printf("\npress 1 to exit.\npress 0 to do another operation.");
-        scanf("%d",&flag);
     
-    }
+    }while(op<=5);
 
 }
 

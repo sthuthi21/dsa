@@ -47,9 +47,9 @@ void display()
 }
 void main()
 {
-    int op,flag=0,a,b;
+    int op,a,b;
     printf("****STACK OPERATIONS****\n");
-    while(flag==0)
+    do
     {
         printf("*********************\n1");
         printf("what do u want to do?\n1.PUSH\n2.POP\n3.DISPLAY\n");
@@ -69,11 +69,10 @@ void main()
                 display();
                 break;
             default:
-                printf("select valid option");
+                printf("exiting....");
         }
-        printf("\npress 1 to exit.\npress 0 to do another operation.");
-        scanf("%d",&flag);
-    }
+        
+    }while(op<=3);
     
 }
 
