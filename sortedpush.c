@@ -67,10 +67,11 @@ void main()
 {
     int op,flag=0,a,b;
     printf("****STACK OPERATIONS****\n");
+    printf("what do u want to do?\n1.PUSH\n2.POP\n3.DISPLAY\n");
     do
     {
         printf("\n*********************\n");
-        printf("what do u want to do?\n1.PUSH\n2.POP\n3.DISPLAY\n");
+        printf("enter your option:\n");
         scanf("%d",&op);
         switch(op)
         {
