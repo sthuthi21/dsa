@@ -131,7 +131,7 @@ void insert_inposition(int position)
 			current=current->next;
 			count=count+1;
 		}			
-        if(count<position)
+        	if(count<position)
 			printf("position exceeds the length of the list.\n");
 		else
 		{
@@ -195,7 +195,7 @@ void main()
 				insert_beforedata(item);
 				break;
 			case 6:
-                printf("enter position:");
+                		printf("enter position:");
 				scanf("%d",&position);
 				insert_inposition(position);
 				break;
