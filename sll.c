@@ -132,7 +132,7 @@ void insert_inposition(int position)
 			count=count+1;
 		}			
         if(count<position)
-			printf("position exceeds the length of the list.\n");
+		    printf("position exceeds the length of the list.\n");
 		else
 		{
 			struct node *new=create_node();
@@ -142,6 +142,107 @@ void insert_inposition(int position)
 	}
 	
 
+}
+void delete_begin()
+{
+    struct node *ptr=head;
+    head=ptr->next;
+    printf("deleted item is head ,%d",ptr->data);
+    free(ptr);
+    return;
+}
+void delete_item(int item)
+{
+    struct node *ptr=head;
+    struct node *temp;
+    if(ptr->data==item)
+    {
+        delete_begin();
+    }
+    else if(head==NULL)
+        printf("linked list is empty.\n");
+    else
+    {
+        while(ptr!=NULL)
+        {
+            if(ptr->data!=item)
+            {
+                temp=ptr;
+                ptr=ptr->next;
+            }
+            else
+            {
+                temp->next=ptr->next;
+                printf("deleted element is %d",ptr->data);
+                free(ptr);
+                return;
+            }
+        }
+        if(ptr==NULL)
+        {
+            printf("item doesnt exist");
+        }
+    }
+}
+
+void delete_position(int pos)
+{
+    struct node *current;
+	struct node *prev;
+    int count;
+    if(head==NULL)
+        printf("linked list is empty\n");
+    else
+    {
+        if (pos==1)
+        {
+            delete_begin();
+        }
+        else
+        {
+            current=head;
+            prev=NULL;
+            count=1;
+            while(current!=NULL && count<pos)
+            {
+                prev=current;
+                current=current->next;
+                count=count+1;
+            }
+            if(current==NULL)
+            {
+                printf("position %d exceeds length of the list %d",pos,count);
+            }
+            else
+            {
+                prev->next=current->next;
+                printf("the deleted element is %d at position %d or %d\n",current->data,pos,count);
+                free(current);
+            }
+        }
+
+    }
+    
+}
+
+void delete_smallest()
+{
+	struct node *ptr;
+    if(head==NULL)
+        printf("linked list is empty\n");
+    else
+    {
+        int smallest=head->data;
+        ptr=head;
+        while(ptr!=NULL)
+        {
+            if(ptr->data<smallest)
+                smallest=ptr->data;
+            ptr=ptr->next;
+        }
+        delete_item(smallest);
+
+    }
 }
 
 void display()
@@ -169,7 +270,7 @@ void main()
     int op,item,position;
     printf("MENU");
 	printf("WHAT OPERATIONS DO  YOU WANT TO DO?\n");
-	printf("1.insertion at begin\n2.insert at end\n3.display\n4.insert after data\n5.insert before data\n6.insert at position\n");
+	printf("1.insertion at begin\n2.insert at end\n3.display\n4.insert after data\n5.insert before data\n6.insert at position\n7.delete data\n8.delete position\n9.delete smallest element\n");
 	do{
 		printf("enter your option:");
 		scanf("%d",&op);
@@ -199,12 +300,20 @@ void main()
 				scanf("%d",&position);
 				insert_inposition(position);
 				break;
-	// 	// 	case 6:
-	// 	// 		printf("enter the element you want to enter:");
-	// 	// 		scanf("%d",&data);
-	// 	// 		insert_front(head,data);
-	// 	// 		break;
+            case 7:
+                printf("enter the item you want to delete:");
+                scanf("%d",&item);
+                delete_item(item);
+                break;
+            case 8:
+                printf("enter the position you want to delete:");
+                scanf("%d",&position);
+                delete_position(position);
+                break;
+            case 9:
+                delete_smallest();
+                break;
 				
 		}
-	}while(op<7);
+	}while(op<10);
 }
