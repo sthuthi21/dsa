@@ -313,7 +313,6 @@ void main()
             case 9:
                 delete_smallest();
                 break;
-				
-		}
+        }
 	}while(op<10);
 }
