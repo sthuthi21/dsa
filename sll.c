@@ -296,7 +296,7 @@ void main()
 				insert_beforedata(item);
 				break;
 			case 6:
-                printf("enter position:");
+                		printf("enter position:");
 				scanf("%d",&position);
 				insert_inposition(position);
 				break;
