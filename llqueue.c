@@ -40,8 +40,9 @@ void dequeue()
 		int item=front->data;
 		if(front->next==NULL)
 		{
-			front==NULL;
-			rear==NULL;
+			front=NULL;
+			rear=NULL;
+			printf("deleted element: %d", item);
 		}
 		else
 		{

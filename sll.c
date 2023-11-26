@@ -245,6 +245,30 @@ void delete_smallest()
     }
 }
 
+void search(int ele)
+{
+    if(head==NULL)
+        printf("Linked list is empty");
+    else
+    {
+        int position=1;
+        struct node *current=head;
+        int found=-1;
+        while(current!=NULL)
+        {
+            if(current->data==ele)
+            {
+                printf("element found at position:%d\n",position);
+                found=1;
+            }
+            current=current->next;
+            position++;
+        }
+        if(found==-1)
+            printf("element not found\n");
+    }
+}
+
 void display()
 {
 	struct node *ptr;
@@ -270,7 +294,8 @@ void main()
     int op,item,position;
     printf("MENU");
 	printf("WHAT OPERATIONS DO  YOU WANT TO DO?\n");
-	printf("1.insertion at begin\n2.insert at end\n3.display\n4.insert after data\n5.insert before data\n6.insert at position\n7.delete data\n8.delete position\n9.delete smallest element\n");
+	printf("1.insertion at begin\n2.insert at end\n3.display\n4.insert after data\n5.insert before data\n6.insert at position\n7.delete data\n8.delete position\n9.delete smallest element\n10.search an element\n");
+    printf("press any other number to exit\n");
 	do{
 		printf("enter your option:");
 		scanf("%d",&op);
@@ -312,7 +337,14 @@ void main()
                 break;
             case 9:
                 delete_smallest();
-                break;	
+                break;
+            case 10:
+                printf("enter the element you want to search:");
+                scanf("%d",&item);
+                search(item);
+                break;
+            default:
+                printf("exiting the program...");
         }
-	}while(op<10);
+	}while(op<11);
 }
