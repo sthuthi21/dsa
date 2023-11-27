@@ -9,7 +9,7 @@ struct node
 	struct node *next;
 };
 struct node *head=NULL;
-struct node *create_node()
+struct node* create_node()
 {
     int value;
     printf("ENTER THE DATA :");
@@ -25,12 +25,12 @@ struct node *create_node()
 void sortedInsert(){
 	int searchFlag = 0;
 	if (head == NULL){
-		struct node *new =create_node();
+		struct node *new = create_node();
     	new -> next = head;
     	head = new;
     }
 	else{
-		struct node *new =create_node();
+		struct node *new = create_node();
 		
 		struct node *ptr = head;
 		struct node *prev = head;
@@ -113,14 +113,14 @@ void main()
         switch(op)
         {
             case 1:
-            sortedInsert();
-            break;
+                sortedInsert();
+                break;
             case 2:
-            reverse();
-            break;
+                reverse();
+                break;
             case 3:
-            display();
-            break;
+                display();
+                break;
         }
     }while(op<4);
 }
