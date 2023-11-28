@@ -72,7 +72,6 @@ void reverse()
     {
         printf("list doesnt exist.");
     }
-    else
     
     while(next!=NULL)
     {
@@ -106,7 +105,7 @@ void display()
 void main()
 {
     int op;
-    printf("1. insert element\n2.reverse\n3.display");
+    printf("1. insert element\n2.reverse\n3.display\n");
     do{
         printf("enter your choice:\n");
         scanf("%d",&op);

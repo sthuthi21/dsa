@@ -119,7 +119,6 @@ void main()
 		switch(op)
 		{
 			case 1:
-				printf("reading into polynomial 1\n");
 				printf("Enter the coefficient:");
 				scanf("%d",&coefficient);
 				printf("Enter the exponent:");
@@ -127,7 +126,6 @@ void main()
 				read(&p1,coefficient,exponent);
 				break;
 			case 2:
-				printf("reading into polynomial 2\n");
 				printf("Enter the coefficient:");
 				scanf("%d",&coefficient);
 				printf("Enter the exponent:");
